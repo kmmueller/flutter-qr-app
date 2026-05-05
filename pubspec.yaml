@@ -1,0 +1,37 @@
+name: qr_sheets_scanner
+description: QR/Barcode scanner to Google Sheets
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.16.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  mobile_scanner: ^5.1.1
+  google_sign_in: ^6.2.1
+  googleapis: ^13.2.0
+  googleapis_auth: ^1.6.0
+  http: ^1.2.0
+  extension_google_sign_in_as_googleapis_auth: ^2.0.12
+  image_picker: ^1.0.7
+  shared_preferences: ^2.2.2
+
+dev_dependencies:
+  flutter_lints: ^3.0.1
+  flutter_test:
+    sdk: flutter
+  mockito: ^5.4.4
+  build_runner: ^2.4.8
+  http_mock_adapter: ^0.6.1
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/icon.png"
+
+flutter:
+  uses-material-design: true
