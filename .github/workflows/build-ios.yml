@@ -28,17 +28,17 @@ jobs:
           flutter-version: '3.41.2'
           channel: 'stable'
           cache: true
-      
+
       - name: Get dependencies
         run: flutter pub get
-      
+
       - name: Analyze
         run: flutter analyze --no-pub
-      
+
       - name: Run tests
         run: flutter test --no-pub
         continue-on-error: true
-      
+
       - name: Build iOS
         run: flutter build ios --no-codesign --no-pub
       
