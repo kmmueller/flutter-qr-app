@@ -40,7 +40,6 @@ class _ScanPageState extends State<ScanPage> {
   bool _processing = false; // True when saving a scan result
   final Set<String> _scannedValues = {}; // Duplicate detection within session
   final TextEditingController _boxController = TextEditingController();
-  bool _headersWritten = false;
   static const _boxKey = 'isbn_box_value';
 
   @override
@@ -90,9 +89,6 @@ class _ScanPageState extends State<ScanPage> {
         tabName: widget.tabName,
       );
       if (existing.isNotEmpty && existing.first == 'ISBN') {
-        // Header already present — don't write again, don't change _currentRow
-        _headersWritten = true;
-        if (mounted) setState(() {});
         return;
       }
       await GoogleService.writeRow(
@@ -102,8 +98,6 @@ class _ScanPageState extends State<ScanPage> {
         tabName: widget.tabName,
       );
       _currentRow++;
-      _headersWritten = true;
-      if (mounted) setState(() {});
     } catch (e) {
       if (mounted) setState(() => _status = 'Error writing headers: $e');
     }

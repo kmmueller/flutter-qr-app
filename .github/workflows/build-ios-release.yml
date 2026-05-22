@@ -8,6 +8,7 @@ on:
         required: true
 
 env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   HAS_SIGNING_CREDS: ${{ secrets.BUILD_CERTIFICATE_BASE64 != '' }}
 
 jobs:
